@@ -1,24 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import { Board } from './components/Board';
+import { Settings } from './components/Settings';
+import React from 'react';
+import { Timer } from './components/Timer';
 
 function App() {
+  const [boardSize, setBoardSize] = React.useState(10);
+  const [numMines, setNumMines] = React.useState(10);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <h1 >Minesweeper</h1>
+      <Timer/>
+      <Board boardSize={boardSize} numMines={numMines}/>
+      <Settings boardSize={boardSize} setBoardSize={setBoardSize} numMines={numMines} setNumMines={setNumMines}/>
+    </div> 
   );
 }
 
